@@ -1,5 +1,6 @@
 ﻿using System;
 using Windows.ApplicationModel.Core;
+using Windows.UI.Xaml.Hosting;
 
 namespace HoloCore
 {
@@ -15,6 +16,7 @@ namespace HoloCore
         private static void Main()
         {
             var exclusiveViewApplicationSource = new AppViewSource();
+            WindowsXamlManager.InitializeForCurrentThread();
             CoreApplication.Run(exclusiveViewApplicationSource);
         }
     }
