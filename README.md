@@ -25,6 +25,7 @@ In it I tried replacing `CoreApplication.Run(exclusiveViewApplicationSource)` in
 
 ```csharp
 var exclusiveViewApplicationSource = new AppViewSource();
+WindowsXamlManager.InitializeForCurrentThread();
 var win = CoreWindow.GetForCurrentThread();
 win.Activate();
 var appView = exclusiveViewApplicationSource.CreateView();
