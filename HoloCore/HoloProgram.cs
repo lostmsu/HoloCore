@@ -1,8 +1,11 @@
 ﻿using System;
 using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 
 namespace HoloCore
 {
+    using Windows.UI.Xaml.Hosting;
+
     /// <summary>
     /// Windows Holographic application using SharpDX.
     /// </summary>
@@ -15,7 +18,14 @@ namespace HoloCore
         private static void Main()
         {
             var exclusiveViewApplicationSource = new AppViewSource();
-            CoreApplication.Run(exclusiveViewApplicationSource);
+            WindowsXamlManager.InitializeForCurrentThread();
+            var win = CoreWindow.GetForCurrentThread();
+            win.Activate();
+            var appView = exclusiveViewApplicationSource.CreateView();
+            var coreView = CoreApplication.GetCurrentView();
+            appView.Initialize(coreView);
+            appView.SetWindow(win);
+            appView.Run();
         }
     }
 }

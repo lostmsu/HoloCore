@@ -17,6 +17,7 @@ serverName'
 I tried replacing `CoreApplication.Run(exclusiveViewApplicationSource)` in `Main` with
 ```csharp
 var exclusiveViewApplicationSource = new AppViewSource();
+WindowsXamlManager.InitializeForCurrentThread();
 var win = CoreWindow.GetForCurrentThread();
 win.Activate();
 var appView = exclusiveViewApplicationSource.CreateView();
