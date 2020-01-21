@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoloCore", "HoloCore\HoloCore.csproj", "{9347EF4F-576F-4290-B18A-D9D7F7630F7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repo", "Repo", "{82E6F5CD-107B-48A2-BA02-ED571D0E53CA}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9347EF4F-576F-4290-B18A-D9D7F7630F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9347EF4F-576F-4290-B18A-D9D7F7630F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9347EF4F-576F-4290-B18A-D9D7F7630F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9347EF4F-576F-4290-B18A-D9D7F7630F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE3FD3C8-C1DA-4472-903B-5D9F46ED8308}
+	EndGlobalSection
+EndGlobal
