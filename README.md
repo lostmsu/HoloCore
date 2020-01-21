@@ -14,7 +14,11 @@ serverName'
 ```
 
 ### Make the view run explicitly
-I tried replacing `CoreApplication.Run(exclusiveViewApplicationSource)` in `Main` with
+
+See `Manual-Run` branch. At least it pretends to be working (but actually does not).
+
+In it I tried replacing `CoreApplication.Run(exclusiveViewApplicationSource)` in `Main` with
+
 ```csharp
 var exclusiveViewApplicationSource = new AppViewSource();
 var win = CoreWindow.GetForCurrentThread();
@@ -26,6 +30,7 @@ appView.SetWindow(win);
 appView.Run();
 ```
 
-That actually went all the way to start the loop, but unlike the original UWP Holographic .csproj
-it did not start an 'immersive' view (the cliff house stayed, and basically nothing happened),
-despite me seeing `deviceResources.Present(currentFrame)` being hit ever 16ms.
+This made the program work (as in - not crash) and start the loop in `AppView`, but unlike
+the original UWP Holographic .csproj it did not start an 'immersive' view. The cliff house stayed,
+and basically nothing happened apart from a featureless empty window appearing on the regular
+desktop, despite me seeing `deviceResources.Present(currentFrame)` being hit ever 16ms.
