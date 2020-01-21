@@ -6,12 +6,16 @@ What I tried so far:
 This is the original sample, that you get if you create a new Universal Holographic project.
 I simply removed the .csproj and replaced it with one targeting netcoreapp3.1.
 
-It crashes in `CoreApplication.Run(exclusiveViewApplicationSource)` with
+The original code crashed in `CoreApplication.Run(exclusiveViewApplicationSource)` with
 ```
 System.ArgumentException: 'The parameter is incorrect.
 
 serverName'
 ```
+
+After adding `WindowsXamlManager.InitializeForCurrentThread()`, it does not crash anymore, but
+`AppViewSource.CreateView()` is never called, and the program just gets stuck
+in `CoreApplication.Run`.
 
 ### Make the view run explicitly
 
