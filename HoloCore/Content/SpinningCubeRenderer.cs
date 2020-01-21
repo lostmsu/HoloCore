@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using HoloCore.Common;
+using Windows.Storage;
 using Windows.UI.Input.Spatial;
 
 namespace HoloCore.Content
@@ -174,7 +175,9 @@ namespace HoloCore.Content
 
             usingVprtShaders = deviceResources.D3DDeviceSupportsVprt;
 
-            var folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            var folder = new DesktopBridge.Helpers().IsRunningAsUwp()
+                ? Windows.ApplicationModel.Package.Current.InstalledLocation
+                : await StorageFolder.GetFolderFromPathAsync(Environment.CurrentDirectory);
             
             // On devices that do support the D3D11_FEATURE_D3D11_OPTIONS3::
             // VPAndRTArrayIndexFromAnyShaderFeedingRasterizer optional feature

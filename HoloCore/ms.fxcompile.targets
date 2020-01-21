@@ -67,7 +67,7 @@
     <AvailableItemName Include="TextureShader" />
   </ItemGroup>
 
-  <Target Name="AssignItemsFxCompile" >
+  <Target Name="AssignItemsFxCompile" BeforeTargets="Compile" >
 
     <AssignTargetPath Files="@(EffectShader)" RootFolder="$(MSBuildProjectDirectory)">
       <Output TaskParameter="AssignedFiles" ItemName="_EffectShaderWithTargetPath" />
@@ -167,7 +167,11 @@
     <AssignTargetPathsDependsOn>$(AssignTargetPathsDependsOn);AssignItemsFxCompile</AssignTargetPathsDependsOn>
   </PropertyGroup>
 
-  <Target Name="FxCompile" Condition="'@(_FxCompile)' != ''" DependsOnTargets="$(FxCompileDependsOn)" Inputs="@(_FxCompile)" Outputs="%(_FxCompile.ObjectFileOutput)">
+  <Target Name="FxCompile"
+          Condition="'@(_FxCompile)' != ''"
+          BeforeTargets="Compile"
+          DependsOnTargets="$(FxCompileDependsOn)"
+          Inputs="@(_FxCompile)" Outputs="%(_FxCompile.ObjectFileOutput)">
 
     <MakeDir Directories="@(_FxCompile->'%(ObjectFileOutput)'->DirectoryName())" />
     
